@@ -21,7 +21,7 @@ using Read.NationalSocietyFeatures;
 using Read.ProjectFeatures;
 using Read.UserFeatures;
 
-namespace Web
+namespace Web.Controllers
 {
     [Route("api/testdatagenerator")]
     public class TestDataGeneratorController : Controller

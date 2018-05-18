@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Read.ProjectFeatures;
 
-namespace Web
+namespace Web.Controllers
 {
     [Route("api/project")]
     public class ProjectController : Controller

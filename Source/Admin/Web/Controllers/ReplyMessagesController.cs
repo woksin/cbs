@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Read.AutomaticReplyMessages;
 
-namespace Web
+namespace Web.Controllers
 {
     [Route("api/replymessages")]
     public class ReplyMessagesController : Controller

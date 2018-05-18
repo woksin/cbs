@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Read.HealthRiskFeatures;
 using System;
 
-namespace Web
+namespace Web.Controllers
 {
     [Route("api/healthRisk")]
     public class HealthRiskController : Controller

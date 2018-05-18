@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Read.UserFeatures;
 
-namespace Web
+namespace Web.Controllers
 {
     [Route("api/user")]
     public class UserController : Controller

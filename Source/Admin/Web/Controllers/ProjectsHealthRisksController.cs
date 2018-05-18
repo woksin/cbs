@@ -13,7 +13,7 @@ using Microsoft.Extensions.Logging;
 using Read.HealthRiskFeatures;
 using Read.ProjectFeatures;
 
-namespace Web
+namespace Web.Controllers
 {
     [Route("api/projects/{projectId}")]
     public class ProjectsHealthRiskController : Controller
