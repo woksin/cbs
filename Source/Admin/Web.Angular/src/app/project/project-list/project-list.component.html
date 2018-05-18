@@ -15,7 +15,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let project of projects">
-            <td>{{ project.name }}</td>
+            <td><a [routerLink]="['/project', 'detail', project.id]"><span>{{ project.name }}</span></a></td>
             <td>{{ project.nationalSociety?.name }}</td>
             <td>{{ project.dataOwner?.firstname }} {{ project.dataOwner?.lastname }}</td>
             <td>{{ project.surveillanceContex }}</td>

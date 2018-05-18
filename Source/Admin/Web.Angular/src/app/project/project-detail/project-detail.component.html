@@ -1,0 +1,9 @@
+<div *ngIf="project">
+    <h2>{{project.name}}</h2>
+    <div><span>National Society: </span>{{project.nationalSociety?.name}}</div>
+    <div><span>Project Owner: </span>{{project.dataOwner?.lastname}}</div>
+    <div><span>Surveillance Context: </span>{{project.surveillanceContext}}</div>
+    
+    <button class="btn btn-primary" (click)="goBack()">Back</button>
+  </div>
+  
