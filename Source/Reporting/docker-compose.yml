@@ -8,7 +8,7 @@ services:
   cbs-volunteerreporting-backend:
     build:
         context: ../../
-        dockerfile: Source/VolunteerReporting/Web/Dockerfile
+        dockerfile: Source/Reporting/Web/Dockerfile
     links:
         - cbs-volunteerreporting-db
     depends_on:
@@ -19,7 +19,7 @@ services:
   cbs-volunteerreporting-frontend:
     build:
         context: ../../
-        dockerfile: Source/VolunteerReporting/Web.Angular/Dockerfile
+        dockerfile: Source/Reporting/Web.Angular/Dockerfile
     depends_on:
         - cbs-volunteerreporting-db
         - cbs-volunteerreporting-backend

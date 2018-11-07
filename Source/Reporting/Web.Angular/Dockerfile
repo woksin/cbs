@@ -3,13 +3,13 @@ FROM node:latest AS angular-build
 WORKDIR /src
 RUN ["yarn","global", "add", "typescript"]
 RUN ["yarn","global", "add", "@angular/cli@latest"]
-COPY ./Source/VolunteerReporting/Web.Angular /Source/VolunteerReporting/Web.Angular
+COPY ./Source/Reporting/Web.Angular /Source/Reporting/Web.Angular
 COPY ./Source/Navigation /Source/Navigation
-WORKDIR /Source/VolunteerReporting/Web.Angular
+WORKDIR /Source/Reporting/Web.Angular
 RUN ["yarn", "install"]
 RUN ["yarn", "lint"]
 RUN ["ng", "build", "--prod", "--base-href=/reporting/", "--deploy-url=/reporting/"]
 
 FROM nginx:1.13-alpine
-COPY --from=angular-build /Source/VolunteerReporting/Web.Angular/dist /usr/share/nginx/html
-COPY --from=angular-build /Source/VolunteerReporting/Web.Angular/nginx-default.conf /etc/nginx/conf.d/default.conf
+COPY --from=angular-build /Source/Reporting/Web.Angular/dist /usr/share/nginx/html
+COPY --from=angular-build /Source/Reporting/Web.Angular/nginx-default.conf /etc/nginx/conf.d/default.conf

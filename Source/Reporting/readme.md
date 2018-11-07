@@ -1,7 +1,7 @@
 # Volunteer Reporting
 
 ## Build status
-[![Build status](https://cbsrc.visualstudio.com/cbs/_apis/build/status/Voluntenteer%20Reporting%20CI)](https://cbsrc.visualstudio.com/cbs/_build/latest?definitionId=1)
+[![Build status](https://cbsrc.visualstudio.com/cbs/_apis/build/status/Reporting%20CI)](https://cbsrc.visualstudio.com/cbs/_build/latest?definitionId=1)
 
 ## Prerequisites
 
@@ -11,7 +11,7 @@ See if you can find an issue labeled "good first issue" relating to this project
 
 ## Running the application
 
-The Volunteer Reporting application consists of the following: 
+The Reporting application consists of the following: 
 - MongoDB storage
 - A .NET Core backend
 - A Node.js/Angular.js frontend
@@ -30,7 +30,7 @@ If you want to persist the data created, add a volume to the container:
 
 ### Step 2: Building and running the .NET Core backend on your local machine
 
-(Active path: `cbs\source\VolunteerReporting`)
+(Active path: `cbs\source\Reporting`)
 
 Download nuget dependencies
 > `dotnet restore`
@@ -41,7 +41,7 @@ Build
 Open the Web folder
 > `cd Web` 
 
-(Active path: `cbs\source\VolunteerReporting\Web`) 
+(Active path: `cbs\source\Reporting\Web`) 
 
 Run locally
 > `dotnet run`
@@ -50,7 +50,7 @@ Open browser at address http://localhost:5001/swagger to access Swagger.
 
 ### Step 3: Building and running the Node.js/Angular.js frontend on your local machine
 
-(Active path: `cbs/Source/VolunteerReporting/Web.Angular`)
+(Active path: `cbs/Source/Reporting/Web.Angular`)
 
 Restore dependencies
 > `npm install`

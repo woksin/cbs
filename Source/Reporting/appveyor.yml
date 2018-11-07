@@ -13,14 +13,13 @@ install:
   - ps: Install-Product node 8.6.0 x64
 
 environment:
-  TestsFolder: ../Source/VolunteerReporting/Tests
-  SlnFile: ../Source/VolunteerReporting/VolunteerReporting.sln
-  WebBinFolder: ../Source/VolunteerReporting/Web/bin
-  AngularFolder: ../Source/VolunteerReporting/Web.Angular
+  SlnFile: ../Source/Reporting/Reporting.sln
+  WebBinFolder: ../Source/Reporting/Web/bin
+  AngularFolder: ../Source/Reporting/Web.Angular
 
 only_commits:
   files:
-    - Source/VolunteerReporting/
+    - Source/Reporting/
 
 build_script:
 - ps: ./Build/build.ps1
