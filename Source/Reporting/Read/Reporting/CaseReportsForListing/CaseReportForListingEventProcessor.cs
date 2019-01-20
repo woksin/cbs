@@ -7,7 +7,8 @@ using Concepts.DataCollectors;
 using Dolittle.Events.Processing;
 using Dolittle.ReadModels;
 using Events.Reporting.CaseReports;
-using Read.Reporting.DataCollectors;
+using Read.Management.DataCollectors;
+using Read.Reporting.DataCollectorNames;
 using Read.Reporting.HealthRisks;
 
 namespace Read.Reporting.CaseReportsForListing

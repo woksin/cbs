@@ -5,8 +5,8 @@
 
 using System;
 using System.Collections.Generic;
-using Domain.Management.DataCollectors.Registration;
 using Concepts.DataCollectors;
+using Domain.Management.DataCollectors.Registration;
 
 namespace Domain.Specs.Management.for_data_collectors.when_registering_a_data_collector.given
  {
@@ -25,7 +25,8 @@ namespace Domain.Specs.Management.for_data_collectors.when_registering_a_data_co
                 GpsLocation = new Location(90,90),
                 PhoneNumbers = new List<string>{"123456789"},
                 Region = "Region",
-                District = "Distric"
+                District = "Distric",
+                DataVerifierId = Guid.NewGuid()
             };
          }
 
@@ -45,4 +46,3 @@ namespace Domain.Specs.Management.for_data_collectors.when_registering_a_data_co
          }
      }
  }
-

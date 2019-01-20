@@ -1,4 +1,4 @@
-﻿var weeks = epiCurveByWeek.getWeeks();
+var weeks = epiCurveByWeek.getWeeks();
 var sexes = epiCurveByWeek.getSexes();
 var ages = epiCurveByWeek.getAges();
 

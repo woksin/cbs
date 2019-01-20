@@ -9,6 +9,7 @@ using Dolittle.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Concepts.DataCollectors;
 using Concepts.HealthRisks;
 using Dolittle.Events.Processing;
 using Dolittle.ReadModels;
@@ -49,7 +50,8 @@ namespace Policies.Reporting.Notifications
            //        var filter = Builders<DataCollector>.Filter.AnyEq(c => c.PhoneNumbers, (PhoneNumber)phoneNumber);
            var isTextMessageFormatValid = parsingResult.IsValid;
 
-           var dataCollector = _dataCollectors.Query.Where(_ => _.PhoneNumbers.Contains(new Concepts.DataCollectors.PhoneNumber(notification.Sender))).FirstOrDefault();
+           PhoneNumber phoneNumber = notification.Sender;
+           var dataCollector = _dataCollectors.Query.FirstOrDefault(_ => _.PhoneNumbers.Contains(phoneNumber));
 
            var unknownDataCollector = dataCollector == null;
 

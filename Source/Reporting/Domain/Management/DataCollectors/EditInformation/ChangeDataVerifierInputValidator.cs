@@ -4,21 +4,22 @@
  *--------------------------------------------------------------------------------------------*/
 
 using Concepts.DataCollectors;
+using Concepts.DataVerifiers;
+using Dolittle.Commands.Validation;
 using FluentValidation;
 
 namespace Domain.Management.DataCollectors.EditInformation
 {
-    public class RemovePhoneNumberFromDataCollectorValidator : AbstractValidator<RemovePhoneNumberFromDataCollector>
+    public class ChangeDataVerifierInputValidator : CommandInputValidatorFor<ChangeDataVerifier>
     {
-        public RemovePhoneNumberFromDataCollectorValidator()
+        public ChangeDataVerifierInputValidator()
         {
             RuleFor(_ => _.DataCollectorId)
                 .NotEmpty().WithMessage("Data Collector Id must be set")
                 .SetValidator(new DataCollectorIdValidator());
-
-            RuleFor(_ => _.PhoneNumber)
-                .NotEmpty().WithMessage("Phone Number is required")
-                .Must(_ => !_.Contains(" ")).WithMessage("Phone number is not valid");
+            RuleFor(_ => _.DataVerifierId)
+                .NotEmpty().WithMessage("Data Verifier Id must be set")
+                .SetValidator(new DataVerifierIdValidator());
         }
     }
 }

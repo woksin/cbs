@@ -9,17 +9,15 @@ using FluentValidation;
 
 namespace Domain.Management.DataCollectors.EditInformation
 {
-    public class ChangePreferredLanguageValidator : CommandInputValidatorFor<ChangePreferredLanguage>
+    public class ChangeVillageInputValidator : CommandInputValidatorFor<ChangeVillage>
     {
-        public ChangePreferredLanguageValidator()
+        public ChangeVillageInputValidator()
         {
             RuleFor(_ => _.DataCollectorId)
                 .NotEmpty().WithMessage("Data Collector Id must be set")
                 .SetValidator(new DataCollectorIdValidator());
-
-            RuleFor(_ => _.PreferredLanguage)
-                .Cascade(CascadeMode.StopOnFirstFailure)
-                .IsInEnum().WithMessage("Preferred Language must be valid");
+            RuleFor(_ => _.Village)
+                .NotEmpty().WithMessage("Village is required");
         }
     }
 }

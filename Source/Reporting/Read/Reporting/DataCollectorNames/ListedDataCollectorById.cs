@@ -8,7 +8,7 @@ using Concepts.DataCollectors;
 using Dolittle.Queries;
 using Dolittle.ReadModels;
 
-namespace Read.Reporting.DataCollectors
+namespace Read.Reporting.DataCollectorNames
 {
     public class ListedDataCollectorById : IQueryFor<ListedDataCollector>
     {
@@ -20,7 +20,6 @@ namespace Read.Reporting.DataCollectors
         {
             _collection = collection;
         }
-
         public IQueryable<ListedDataCollector> Query => _collection.Query.Where(d => d.Id == DataCollectorId);
     }
 }

@@ -9,6 +9,7 @@ using Dolittle.Events.Processing;
 using Dolittle.ReadModels;
 using Domain.Reporting.CaseReports;
 using Events.Management.DataCollectors.EditInformation;
+using Read.Reporting.DataCollectorNames;
 
 namespace Policies.Reporting
 {

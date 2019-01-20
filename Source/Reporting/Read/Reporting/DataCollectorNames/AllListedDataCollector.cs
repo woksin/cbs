@@ -7,7 +7,7 @@ using System.Linq;
 using Dolittle.Queries;
 using Dolittle.ReadModels;
 
-namespace Read.Reporting.DataCollectors
+namespace Read.Reporting.DataCollectorNames
 {
     public class AllListedDataCollectors : IQueryFor<ListedDataCollector>
     {
@@ -17,7 +17,6 @@ namespace Read.Reporting.DataCollectors
         {
             _collection = collection;
         }
-
         public IQueryable<ListedDataCollector> Query => _collection.Query;
     }
 }

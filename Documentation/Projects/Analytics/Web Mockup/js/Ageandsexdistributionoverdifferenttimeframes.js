@@ -1,4 +1,4 @@
-﻿var locations = epiCurveByWeek.getLocations();
+var locations = epiCurveByWeek.getLocations();
 
 var series = [];
 locations.forEach(function(location) {

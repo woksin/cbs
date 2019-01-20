@@ -16,7 +16,7 @@ namespace Domain.Management.DataCollectors.EditInformation
                 .NotEmpty().WithMessage("Data Collector Id must be set")
                 .SetValidator(new DataCollectorIdValidator());
 
-            RuleFor(_ => _.PhoneNumber)
+            RuleFor(_ => _.PhoneNumber.Value)
                 .NotEmpty().WithMessage("Phone Number is required")
                 .Must(_ => !_.Contains(" ")).WithMessage("Phone number is not valid");
 
