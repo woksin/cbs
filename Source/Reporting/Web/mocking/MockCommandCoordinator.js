@@ -1,6 +1,6 @@
 import { CommandRequest, Command } from '@dolittle/commands';
 
-class MockCommandCoordinator {
+export class MockCommandCoordinator {
 
     /**
      * Handle a {Command}
