@@ -1,6 +1,8 @@
 import { combineReducers } from "redux";
-import reporting from "./reportingReducer";
+import dataCollectors from "./dataCollectors";
+import caseReports from "./dataCollectors";
 
 export default combineReducers({
-    reporting: reporting()
+    dataCollectors: dataCollectors(),
+    caseReports : caseReports()
 });

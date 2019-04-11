@@ -2,17 +2,17 @@ import React, { Component } from "react";
 
 export const BASE_URL = "http://localhost:3000/";
 
-class Reporting extends Component {
+class DataCollectors extends Component {
     constructor(props) {
         super(props);
     }
     render() {
         return (
-            <div className="reporting--container">
-                Welcome to Reporting!
+            <div className="data-collectors--container">
+                Here is where the data collectors live!
             </div>
         );
     }
 }
 
-export default Reporting;
+export default DataCollectors;
