@@ -1,22 +1,22 @@
-.analytics--container {
+.reporting--container {
     display: flex;
     justify-content: center;
     padding: 50px;
     flex-direction: column;
 }
 
-.analytics--header {
+.reporting--header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.analytics--headerPanelContainer {
+.reporting--headerPanelContainer {
     display: flex;
     justify-content: space-evenly;
 }
 
-.analytics--headerPanel {
+.reporting--headerPanel {
     text-align: center;
     width: 400px;
     border: 1px solid #eeeeee;
@@ -26,18 +26,18 @@
     margin: 4px;
 }
 
-.analytics--listContainer {
+.reporting--listContainer {
     text-align: left;
     padding: 0px 15px 0px 15px;
 }
 
-.analytics--headerPanelIcon {
+.reporting--headerPanelIcon {
     padding: 20px;
     background-color: #eee;
     width: 100%;
 }
 
-.analytics--datePicker {
+.reporting--datePicker {
     position: absolute;
     right: 50px;
     top: 160px;
@@ -50,23 +50,23 @@
     z-index: 1;
 }
 
-.analytics--diagramLabel {
+.reporting--diagramLabel {
     display: flex;
     align-items: baseline;
     justify-content: flex-end;
     padding-top: 20px;
 }
 
-.analytics--twoDiagrams {
+.reporting--twoDiagrams {
     display: flex;
     justify-content: space-between;
 }
 
-.analytics--insideDiagram {
+.reporting--insideDiagram {
     flex: 0 0 50%;
 }
 
-.analytics--loadingContainer {
+.reporting--loadingContainer {
     width: 100%;
     display: flex;
     justify-content: center;
