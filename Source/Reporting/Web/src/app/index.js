@@ -5,7 +5,6 @@ import { BrowserRouter, Route } from 'react-router-dom';
 // Reacdom quckstart https://reacttraining.com/react-router/web/guides/quick-start
 import '../assets/main.scss';
 import Reporting from '../components/Reporting';
-import { commandCoordinator, queryCoordinator } from '../../coordinators';
 
 
 ReactDOM.render(
@@ -13,7 +12,7 @@ ReactDOM.render(
         <Route path="/" 
         exact 
         render={props => (
-            <Reporting commandCoordinator={commandCoordinator} queryCoordinator={queryCoordinator} />
+            <Reporting />
         )}/>
     </BrowserRouter>,
     document.getElementById('app')

@@ -1,7 +1,10 @@
 import { Query } from '@dolittle/queries';
 import {AllDataCollectors} from '../src/app/Management/DataCollectors/AllDataCollectors';
 import {DataCollectorById} from '../src/app/Management/DataCollectors/DataCollectorById';
+import {AllCaseReportsForListing} from '../src/app/Reporting/CaseReportsForListing/AllCaseReportsForListing';
+import {CaseReportForListingById} from '../src/app/Reporting/CaseReportsForListing/CaseReportForListingById';
 import dataCollectors from './dataCollectors';
+import caseReports from './caseReports';
 
 export class MockQueryCoordinator {
     dataCollectors = [];
@@ -24,6 +27,15 @@ export class MockQueryCoordinator {
         }
         else if(query instanceof DataCollectorById) {
             let items = dataCollectors.filter(_ => _.id === query.dataCollectorId);
+            return new QueryResult(query, items);
+        }
+        else if (query instanceof AllCaseReportsForListing) {
+            let items = caseReports;
+            return new QueryResult(query, items);
+        }
+
+        else if(query instanceof CaseReportForListingById) {
+            let items = caseReports.filter(_ => _.id === query.caseReportId);
             return new QueryResult(query, items);
         }
     }

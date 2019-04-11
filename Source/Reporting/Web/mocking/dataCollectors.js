@@ -15,9 +15,10 @@ for(let i = 0; i < 5; i++) {
     dataCollector.location = {latitude: 1, longitude: 1};
     dataCollector.region = "Default Region";
     dataCollector.district = "Default District";
+    dataCollector.village = 'Default Village';
     dataCollector.registeredAt = new Date();
+    
     dataCollectors.push(dataCollector);
-
 }
 
 export default dataCollectors;
