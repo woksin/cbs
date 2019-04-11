@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import CaseReports from './components/CaseReports';
 import DataCollectors from './components/DataCollectors';
+import AddDataCollector from './components/AddDataCollector';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route path="/casereports" component={CaseReports} />
           <Route path="/datacollectors" component={DataCollectors} />
+          <Route path="/register-datacollector" component={AddDataCollector} />
         </div>
       </Router>
     );
