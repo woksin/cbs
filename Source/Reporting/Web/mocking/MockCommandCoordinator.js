@@ -5,6 +5,7 @@ export class MockCommandCoordinator {
     /**
      * Handle a {Command}
      * @param {Command} command
+     * @return {Promise<*>}
      */
     handle(command) {
         return new Promise((resolve, reject) => {
@@ -23,5 +24,3 @@ export class MockCommandCoordinator {
         });
     }
 }
-const mockCommandCoordinator = new MockCommandCoordinator();
-export default mockCommandCoordinator;
