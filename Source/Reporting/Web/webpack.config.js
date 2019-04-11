@@ -1,89 +1,29 @@
-const path = require("path");
+const path = require('path');
+const dotenv = require('dotenv-webpack');
+require('dotenv').config();
 
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+process.env.DOLITTLE_WEBPACK_ROOT = path.resolve('./');
+process.env.DOLITTLE_WEBPACK_OUT = path.resolve('./dist');
+process.env.DOLITTLE_FEATURES_DIR = path.resolve('./src/app');
+process.env.DOLITTLE_COMPONENT_DIR = path.resolve('./Components');
 
-module.exports = {
+const config = require('@dolittle/build.react/webpack.config.js');
 
-  entry: path.join(__dirname,'src','index.js'),
+const modified = (env, argv) => {
+    const base = config(arguments);
+    base.plugins.push(
+        new dotenv({
+            path: './Environments/'+argv.mode+'.env'
+        })
+    );
+    base.devServer = {
+        port: 4010,
+        historyApiFallback: true,
+        proxy: {
+            '/api': 'http://localhost:5010'
+        }
+    };
+    return base;
+}
 
-  output: {
-
-    path: path.join(__dirname,'build'),
-
-    filename: 'index.bundle.js'
-
-  },
-
-  mode: process.env.NODE_ENV || 'development',
-
-  resolve: {
-
-    modules: [path.resolve(__dirname, 'src'), 'node_modules']
-
-  },
-
-  devServer: {
-
-    contentBase: path.join(__dirname,'src')
-
-  },
-
-  module: {
-
-    rules: [
-
-      {
-
-        // this is so that we can compile any React,
-
-        // ES6 and above into normal ES5 syntax
-
-        test: /\.(js|jsx)$/,
-
-        // we do not want anything from node_modules to be compiled
-
-        exclude: /node_modules/,
-
-        use: ['babel-loader']
-
-      },
-
-      {
-
-        test: /\.(css|scss)$/,
-
-        use: [
-
-          "style-loader", // creates style nodes from JS strings
-
-          "css-loader", // translates CSS into CommonJS
-
-          "sass-loader" // compiles Sass to CSS, using Node Sass by default
-
-        ]
-
-      },
-
-      {
-
-        test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,
-
-        loaders: ['file-loader']
-
-      }
-
-    ]
-
-  },
-
-  plugins: [
-
-    new HtmlWebpackPlugin({
-
-      template: path.join(__dirname,'src','index.html')
-
-    })
-
-  ]
-
-};
+module.exports = modified;
