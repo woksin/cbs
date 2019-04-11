@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 
-export const BASE_URL = "http://localhost:3000/";
-
 class Reporting extends Component {
+    commandCoordinator;
+    queryCoordinator;
     constructor(props) {
         super(props);
+        this.commandCoordinator = props.commandCoordinator;
+        this.queryCoordinator = props.queryCoordinator;
     }
     render() {
         return (
