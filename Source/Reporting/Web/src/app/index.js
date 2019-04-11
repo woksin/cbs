@@ -13,7 +13,7 @@ ReactDOM.render(
         <Route path="/" 
         exact 
         render={props => (
-            <Reporting {...props, commandCoordinator, queryCoordinator} />
+            <Reporting commandCoordinator={commandCoordinator} queryCoordinator={queryCoordinator} />
         )}/>
     </BrowserRouter>,
     document.getElementById('app')
