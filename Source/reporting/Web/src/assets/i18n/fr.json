@@ -1,4 +1,10 @@
 {
+    "QUICKFILTER": {
+        "All": "Tout",
+        "Success": "Succès",
+        "Error": "Erreur",
+        "Unknown sender": "Expéditeur inconnu"
+    },
     "REGISTER" : {
         "button": "Retour",
 

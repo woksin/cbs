@@ -17,7 +17,7 @@
                 class="small {{ filter.cssClass }}"
                 [ngClass]="{'current': this.currentFilter === filter}"
                 (click)="clickFilter(filter)">
-                {{filter.description}} <!-- Translate-->
+                {{'QUICKFILTER.' + filter.description | translate}}
             </button>
         </span>
     </div>
