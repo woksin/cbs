@@ -92,7 +92,7 @@
          "page_prev": "précédent",
          "page_next": "suivant",
          
-         "TABLE_HEADERS": {//TODO: French
+         "TABLE_HEADERS": {
             "Date": "I' date",
             "Time": "Temps",
             "Status": "Statut",

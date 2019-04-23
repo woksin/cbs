@@ -1,8 +1,8 @@
 <div class="header">
-    <h2>{{ 'REGISTER.related.collector' | translate }}</h2>
+    <h2>{{ 'MANAGEMENT.collector' | translate }}</h2>
     <a [routerLink]="['/datacollectors/register']" routerLinkActive="active">
         <button class="btn btn-primary">
-            {{ 'REGISTER.form_name' | translate }}
+            {{ 'MANAGEMENT.REGISTER.form_name' | translate }}
         </button>
     </a>
     <a>
@@ -15,11 +15,11 @@
 <table class="table"  *ngIf="!error">
     <thead>
         <tr>
-            <th>{{ 'REGISTER.full_name' | translate }}</th>
-            <th>{{ 'REGISTER.phone_number_list' | translate }}</th>
-            <th>{{ 'REGISTER.region' | translate }}</th>
-            <th>{{ 'REGISTER.related.last_report_name' | translate }}</th>
-            <th>{{ 'REGISTER.related.status' | translate }}</th>
+            <th>{{ 'MANAGEMENT.REGISTER.full_name' | translate }}</th>
+            <th>{{ 'MANAGEMENT.REGISTER.phone_number_list' | translate }}</th>
+            <th>{{ 'MANAGEMENT.REGISTER.region' | translate }}</th>
+            <th>{{ 'MANAGEMENT.last_report_name' | translate }}</th>
+            <th>{{ 'MANAGEMENT.status' | translate }}</th>
             <th>&nbsp;</th>
         </tr>
     </thead>
@@ -42,8 +42,8 @@
                 <span>{{user.lastActive | date:'dd.MM.yy    hh:mm'}}</span>
             </td>
             <td>
-                <span class="training-status" *ngIf="user.inTraining" [ngClass]="user.inTraining ? 'training-status-off' : 'training-status-on'">{{'REGISTER.related.status_inactive' | translate}}</span>
-                <span class="training-status" *ngIf="!user.inTraining" [ngClass]="user.inTraining ? 'training-status-off' : 'training-status-on'">{{'REGISTER.related.status_active' | translate}}</span>
+                <span class="training-status" *ngIf="user.inTraining" [ngClass]="user.inTraining ? 'training-status-off' : 'training-status-on'">{{'MANAGEMENT.status_inactive' | translate}}</span>
+                <span class="training-status" *ngIf="!user.inTraining" [ngClass]="user.inTraining ? 'training-status-off' : 'training-status-on'">{{'MANAGEMENT.status_active' | translate}}</span>
             </td>
             <td>
                 <div class="btn-group" dropdown placement="bottom right">
