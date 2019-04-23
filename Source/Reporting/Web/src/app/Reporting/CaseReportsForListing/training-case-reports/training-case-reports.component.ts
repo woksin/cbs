@@ -18,8 +18,8 @@ import { ToastrService } from 'ngx-toastr';
 export class TrainingCaseReportsComponent implements OnInit {
 
     convertToLiveReportCommand: ConvertToLiveReport;
-    listedReports: Array<TrainingCaseReportForListing> = []; //TODO: Should be another, TrainingCaseReports, read model
-
+    listedReports: Array<TrainingCaseReportForListing> = [];
+    allReports: Array<TrainingCaseReportForListing> = [];
     allFilters: Array<QuickFilter> = QuickFilter.FiltersWithoutUnknownSender;
     currentFilter: QuickFilter = QuickFilter.All;
 
@@ -27,15 +27,14 @@ export class TrainingCaseReportsComponent implements OnInit {
     sortDescending: boolean = true;
     sortField: string;
     currentSortColumn: SortableColumn = CaseReportColumns[0] as SortableColumn; // Timestamp
-
+    dateDebut : any ;
+    dateFin : any;
     page = {
         isLoading: false,
         number: 0,
         size: 50,
         sizes: [10, 20, 50, 100, 200, 500, 1000]
     };
-
-    selectedCase;
 
     constructor(
         private queryCoordinator: QueryCoordinator,
@@ -69,6 +68,20 @@ export class TrainingCaseReportsComponent implements OnInit {
         this.updateNavigation(filter, this.currentSortColumn, this.sortDescending);
     }
 
+    sortDate(datefrom, dateto ) {
+        let dateFrom = new Date(datefrom);
+        let dateTo = new Date(dateto);
+        this.listedReports = this.allReports;
+        let newReports = [];
+
+        this.listedReports.forEach( listedReport => {
+            let date = listedReport.timestamp;
+            if (date.getTime() >= dateFrom.getTime() && date.getTime() <= dateTo.getTime()) newReports.push(listedReport);
+        });
+
+        this.listedReports = newReports;
+    }
+
     toggleSortColum(column: Column) {
         if (column instanceof SortableColumn) {
             if (column !== this.currentSortColumn) {
@@ -80,7 +93,7 @@ export class TrainingCaseReportsComponent implements OnInit {
     }
 
     loadListData(): void {
-        const query = new AllTrainingCaseReportsForListing(); //TODO: Should be another, TrainingCaseReports, read model. Another query
+        const query = new AllTrainingCaseReportsForListing();
         query.pageNumber = this.page.number;
         query.pageSize = this.page.size;
         query.sortField = this.sortField;
@@ -93,6 +106,7 @@ export class TrainingCaseReportsComponent implements OnInit {
                     this.listedReports.forEach(element => {
                         element.timestamp = new Date(element.timestamp);
                     });
+                    this.allReports = this.listedReports;
                 } else {
                     console.error(response);
                 }
@@ -166,8 +180,7 @@ export class TrainingCaseReportsComponent implements OnInit {
         this.modal.getModal('modalExportDataCollectors').open();
     }
 
-    convert() { 
-        console.log(this.convertToLiveReportCommand);
+    convert() {
         this.commandCoordinator.handle(this.convertToLiveReportCommand)
             .then(response => {
                 if (response.success)  {

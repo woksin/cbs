@@ -53,8 +53,8 @@ export class CaseReportListComponent implements OnInit {
         size: 50,
         sizes: [10, 20, 50, 100, 200, 500, 1000]
     };
-
     convertToTrainingReportCommand: ConvertToTrainingReport;
+
     constructor(
         private toastr: ToastrService,
         private queryCoordinator: QueryCoordinator,
@@ -201,7 +201,6 @@ export class CaseReportListComponent implements OnInit {
     }
 
     convert() {
-        console.log(this.convertToTrainingReportCommand);
         this.commandCoordinator.handle(this.convertToTrainingReportCommand)
             .then(response => {
                 if (response.success)  {

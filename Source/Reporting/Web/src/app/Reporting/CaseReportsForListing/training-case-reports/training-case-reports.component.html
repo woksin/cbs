@@ -10,20 +10,20 @@
 <div>
         <a routerLink="../../list/all" > {{ 'REGISTER.REPORT.report_name' | translate }}</a>
     </div>
-
-<div class="paging row">
-    <div class="col-md-7 paging-filters">
-        {{ 'REGISTER.REPORT.filter' | translate }}:
+<div class="row">
+    <div class="col-md-4 paging-filters">
         <span *ngFor="let filter of allFilters">
             <button
                 class="small {{ filter.cssClass }}"
                 [ngClass]="{'current': this.currentFilter === filter}"
                 (click)="clickFilter(filter)">
-                {{filter.description}}
+                {{filter.description}} <!-- Translate-->
             </button>
         </span>
     </div>
-    <div class="col-md-2 paging-size">
+</div>
+<div class="paging row">
+    <div class="col-md-9 paging-size">
         {{ 'REGISTER.REPORT.page_size' | translate }}:
         &nbsp;
         <select
@@ -54,7 +54,18 @@
         </button>
     </div>
 </div>
-<table class="table table-bordered table-striped">
+
+<div class="row">
+    <div class="col-md-8 paging-date">
+        <form>
+            {{ 'REGISTER.related.date_range' | translate }} :
+            <input type="date" required name="dateFrom" id="dateFrom" [(ngModel)] ="dateFrom"><i class="fa fa-calendar"></i>
+            <input type="date" required name="dateTo" id="dateTo"  [(ngModel)] ="dateTo"><i class="fa fa-calendar"></i>
+            <input type="submit" value="search" (click)="sortDate(this.dateFrom,this.dateTo)">
+        </form>
+    </div>
+</div>
+<table class="table">
     <thead>
         <tr>
             <th *ngFor="let column of allColumns"
@@ -64,7 +75,7 @@
                   (click)="toggleSortColum(column)"
                   [ngClass]="{'sortable': column.isSortable}"
             ></th>
-            <th>Actions</th>
+            <th>&nbsp;</th>
         </tr>
     </thead>
     <tbody *ngIf="!page.isLoading">
@@ -108,7 +119,11 @@
                     {{caseReport.message}} {{ 'REGISTER.REPORT.parse_error' | translate }}: {{caseReport.parsingErrorMessage}}
                 </td>
             </ng-container>
-            <td><button (click)="convertToLiveCase(caseReport)" type="button" name="button" class="btn btn-warning">{{ 'REGISTER.REPORT.convert_to_live' | translate }}</button> </td>
+            <td>
+                <button (click)="convertToLiveCase(caseReport)" type="button" class="btn convert">
+                    {{ 'REGISTER.REPORT.convert_to_live' | translate }}
+                </button>
+            </td>
         </tr>
     </tbody>
 </table>

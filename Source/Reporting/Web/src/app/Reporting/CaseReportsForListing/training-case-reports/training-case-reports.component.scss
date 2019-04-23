@@ -48,6 +48,21 @@ th {
     }
 }
 
+
+.table>tbody>tr>td,
+.table>tbody>tr>th {
+  border-top: none;
+}
+tr:hover {
+    background-color: #f9f9f9;
+    color: #403E10;
+   
+    transition-delay: 0s;
+    transition-duration: 0.4s;
+    transition-property: all;
+    transition-timing-function: line;
+}
+
 .label {
     margin-right: 2px;
 }
