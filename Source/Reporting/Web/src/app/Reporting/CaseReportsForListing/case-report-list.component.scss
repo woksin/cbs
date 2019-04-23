@@ -60,10 +60,7 @@ tr:hover {
     background-color: #f9f9f9;
     color: #403E10;
    
-    transition-delay: 0s;
-    transition-duration: 0.4s;
-    transition-property: all;
-    transition-timing-function: line;
+    transition: all 0.4s line 0s;
 }
 .label {
     margin-right: 2px;
