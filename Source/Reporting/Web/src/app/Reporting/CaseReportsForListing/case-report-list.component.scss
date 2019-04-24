@@ -48,9 +48,11 @@ button {
 .case-report-table {
     tr, td, th, tbody {
         border-top: none;
+        color: #425a70;
     };
     th {
-        font-weight: 500;
+        background-color: #f9f9f9;
+        font-weight: medium;
     
         &.sortable {
             cursor: pointer;
