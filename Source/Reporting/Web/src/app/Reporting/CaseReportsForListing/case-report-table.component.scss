@@ -1,0 +1,71 @@
+div.actions {
+    text-align: right;
+    padding: .5rem;
+}
+
+.paging {
+    display: flex;
+    border: 1px solid lightgray;
+    border-radius: 2px;
+    margin: 3rem 0 2rem;
+    padding: 1rem 0;
+    
+
+    &-filters {
+        .current {
+            border: 1px solid black;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            margin: 0 .5rem;
+        }
+    }
+
+    &-size {
+        display: flex;
+    }
+
+    &-pages {
+        text-align: right;
+
+        &-number {
+            margin: 0 2rem;
+        }
+    }
+
+    &-date {
+      
+    }
+}
+
+button {
+    &.small {
+        font-size: 1.1rem;
+    }
+    &.convert {
+        border: 1px ridge
+    }
+}
+.case-report-table {
+    tr, td, th, tbody {
+        border-top: none;
+        color: #425a70;
+    };
+    th {
+        background-color: #f9f9f9;
+        font-weight: medium;
+    
+        &.sortable {
+            cursor: pointer;
+            font-weight: 700;
+        };
+    }
+    tr:hover {
+        background-color: #f9f9f9;
+        color: #403E10;
+    
+        transition: all 0.4s line 0s;
+    };
+}
+.label {
+    margin-right: 2px;
+}

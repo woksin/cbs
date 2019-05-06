@@ -1,0 +1,80 @@
+<h3>
+    {{ 'REPORTING.report_name' | translate }}
+</h3>
+
+<div class="row">
+    <div class="col-md-8 paging-date">
+        <form>
+            {{ 'MANAGEMENT.date_range' | translate }} :
+            <input type="date" required name="dateFrom" id="dateFrom" [(ngModel)] ="dateFrom"><i class="fa fa-calendar"></i>
+            <input type="date" required name="dateTo" id="dateTo"  [(ngModel)] ="dateTo"><i class="fa fa-calendar"></i>
+            <input type="submit" value="search" (click)="sortDate(this.dateFrom,this.dateTo)">
+        </form>
+    </div>
+</div>
+
+<table class="table case-report-table">
+    <thead>
+        <tr><!-- Translate these columns as well-->
+            <th *ngFor="let column of allColumns"
+                  [column]="column"
+                  [current-sorted]="currentSortColumn"
+                  [sort-descending]="sortDescending"
+                  (click)="toggleSortColum(column)"
+                  [ngClass]="{'sortable': column.isSortable}"
+                  
+            >
+            </th>
+            <th>&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="!page.isLoading">
+        <tr *ngFor="let caseReport of listedReports | filter:currentFilter">
+            <td>{{caseReport.timestamp | date: 'dd.MM.yyyy'}}</td>
+            <td>{{caseReport.timestamp | date:'shortTime'}}</td>
+            <td>
+                <span *ngIf="isSuccess(caseReport.status)" class="label label-success">
+                    {{ 'REPORTING.case_success' | translate }}
+                </span>
+                <span *ngIf="isError(caseReport.status) || isErrorUnknown(caseReport.status)" class="label label-danger">
+                    {{ 'REPORTING.case_error' | translate }}
+                </span>
+                <span *ngIf="isSuccessUnknown(caseReport.status)|| isErrorUnknown(caseReport.status)" class="label label-warning">
+                    {{ 'REPORTING.case_uknown' | translate }}
+                </span>
+            </td>
+
+            <ng-container *ngIf="isSuccess(caseReport.status) || isError(caseReport.status)">
+                <td>{{caseReport.dataCollectorDisplayName || "Unknown"}}</td>
+                <td>{{caseReport.origin || "Unknown"}}</td>
+                <td>{{caseReport.dataCollectorRegion || "Unknown"}}</td>
+                <td>{{caseReport.dataCollectorDistrict || "Unknown"}}</td>
+                <td>{{caseReport.dataCollectorVillage || "Unknown"}}</td>
+            </ng-container>
+
+            <ng-container *ngIf="isSuccessUnknown(caseReport.status) || isErrorUnknown(caseReport.status)">
+                <td colspan="5">{{ 'REPORTING.case_origin' | translate }}: {{caseReport.origin || "Unknown"}}</td>
+            </ng-container>
+
+            <ng-container *ngIf="isSuccess(caseReport.status) || isSuccessUnknown(caseReport.status)">
+                <td>{{caseReport.healthRisk}}</td>
+                <td>{{caseReport.numberOfMalesUnder5}}</td>
+                <td>{{caseReport.numberOfMalesAged5AndOlder}}</td>
+                <td>{{caseReport.numberOfFemalesUnder5}}</td>
+                <td>{{caseReport.numberOfFemalesAged5AndOlder}}</td>
+            </ng-container>
+
+            <ng-container *ngIf="isError(caseReport.status) || isErrorUnknown(caseReport.status)">
+                <td colspan="5">
+                    {{caseReport.message}} {{ 'REPORTING.parse_error' | translate }}: {{caseReport.parsingErrorMessage}}
+                </td>
+            </ng-container>
+            <td>
+                <button (click)="convertReport(caseReport)" type="button" class="btn convert">
+                    {{convertBtnText}}
+                </button>
+            </td>
+
+        </tr>
+    </tbody>
+</table>
