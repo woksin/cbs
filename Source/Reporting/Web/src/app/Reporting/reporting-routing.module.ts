@@ -3,6 +3,7 @@ import {Routes, RouterModule} from '@angular/router';
 
 import {CaseReportListComponent} from './CaseReportsForListing/case-report-list.component';
 import { TrainingCaseReportsComponent } from './CaseReportsForListing/training-case-reports/training-case-reports.component';
+import { CaseReportTableComponent } from './CaseReportsForListing/case-report-table.component';
 
 /*import { environment } from './environment';
 console.log('PRODUCTION:',environment.production);*/
@@ -18,7 +19,7 @@ const routes: Routes = [
       },
       {
         path: 'list/:filter',
-        component: CaseReportListComponent
+        component: CaseReportTableComponent
       },
       {
         path: 'training/:filter',

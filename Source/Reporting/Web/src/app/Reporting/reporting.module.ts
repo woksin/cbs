@@ -10,6 +10,7 @@ import {SortableColumnComponent} from './CaseReportsForListing/sort/sortable-col
 import {Filter} from './CaseReportsForListing/filtering/filter.pipe';
 import { TrainingCaseReportsComponent } from './CaseReportsForListing/training-case-reports/training-case-reports.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { CaseReportTableComponent } from './CaseReportsForListing/case-report-table.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { TranslateModule } from '@ngx-translate/core';
   ],
   declarations: [
     CaseReportListComponent,
+    CaseReportTableComponent,
     TrainingCaseReportsComponent,
     CaseReportExportComponent,
     SortableColumnComponent,
